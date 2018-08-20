@@ -1,0 +1,32 @@
+#_*_ encoding:utf-8 _*_
+
+#没有上面的编码声明，注释中都不能用中文
+#每一个奶牛一开始的苹果数目，是同奇偶性，才能够通过每次转移2个最后达到相同。
+
+#最后的每个苹果数取中间数。损有余而补不足。
+
+#一个是思路（读懂题意的能力，提出解决方法的能力），一个是编程。
+
+
+#7 15 9 5 四个输入。 获取信息的能力  sum = 36  average=9 那么 到average的距离是 +2 -6 +0 +4 
+
+#归纳一下，1.总数平均值是一个整数 2.
+#
+n = int(raw_input())
+items = raw_input()
+arr = [int(item) for item in items.split()]#这个地方为什么不可以用” “来切割
+average_arr = sum(arr)/n  #也不能说这个地方错误 应该是除 ，应该是取平均值之后，一个看是否正除
+count = 0
+isTrue = True
+if sum(arr)%n!=0:
+    print -1
+else:
+    for item in arr:
+        if abs(item - average_arr)%2!=0:
+            print -1
+            isTrue = False
+            break
+        else:
+            count += abs(item - average_arr)/2
+    if isTrue:
+        print count/2
