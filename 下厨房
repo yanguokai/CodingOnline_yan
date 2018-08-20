@@ -1,0 +1,31 @@
+#_*_ encoding:utf-8 _*_
+
+##############################
+#一个n*m的二维矩阵，表示每个料理，需要的材料情况。
+#n<=50  ，m<=50 #是每一行不超过50个字符，不完全是m小于等于。
+#统计出不同的材料的个数就行。
+#将获得的矩阵 转化成一个set，完成去重，然后获取元素个数。
+
+#要有多少个输入，什么时候确定输入停止
+
+#n=0
+#input_list = []
+#while n<50:
+    #input_list.append(raw_input().split(" "))
+    
+    #要有一个判断表示退出输入
+##############################    
+import sys
+
+if __name__ == '__main__':
+    try:
+        std_in = sys.stdin
+        materia = set()
+        for line in sys.stdin:
+            for food in line.split():
+                materia.add(food)
+        print(len(materia))
+    except:
+        pass
+        
+    
